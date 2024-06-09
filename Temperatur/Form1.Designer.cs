@@ -46,11 +46,11 @@
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBoxFile = new System.Windows.Forms.GroupBox();
             this.groupBoxInput = new System.Windows.Forms.GroupBox();
+            this.groupBoxOutput = new System.Windows.Forms.GroupBox();
+            this.lblOutput = new System.Windows.Forms.Label();
             this.lblDatum = new System.Windows.Forms.Label();
             this.lblTemperatur = new System.Windows.Forms.Label();
             this.lblLuftfeuchtigkeit = new System.Windows.Forms.Label();
-            this.groupBoxOutput = new System.Windows.Forms.GroupBox();
-            this.lblOutput = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWetterdaten)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.groupBoxFile.SuspendLayout();
@@ -128,7 +128,7 @@
             this.lblAvgTemp.AutoSize = true;
             this.lblAvgTemp.Location = new System.Drawing.Point(6, 19);
             this.lblAvgTemp.Name = "lblAvgTemp";
-            this.lblAvgTemp.Size = new System.Drawing.Size(169, 13);
+            this.lblAvgTemp.Size = new System.Drawing.Size(163, 13);
             this.lblAvgTemp.TabIndex = 7;
             this.lblAvgTemp.Text = "Durchschnittliche Temperatur: 0°C";
             // 
@@ -137,7 +137,7 @@
             this.lblAvgHumidity.AutoSize = true;
             this.lblAvgHumidity.Location = new System.Drawing.Point(6, 41);
             this.lblAvgHumidity.Name = "lblAvgHumidity";
-            this.lblAvgHumidity.Size = new System.Drawing.Size(185, 13);
+            this.lblAvgHumidity.Size = new System.Drawing.Size(179, 13);
             this.lblAvgHumidity.TabIndex = 8;
             this.lblAvgHumidity.Text = "Durchschnittliche Luftfeuchtigkeit: 0%";
             // 
@@ -146,7 +146,7 @@
             this.lblMaxTemp.AutoSize = true;
             this.lblMaxTemp.Location = new System.Drawing.Point(6, 63);
             this.lblMaxTemp.Name = "lblMaxTemp";
-            this.lblMaxTemp.Size = new System.Drawing.Size(127, 13);
+            this.lblMaxTemp.Size = new System.Drawing.Size(113, 13);
             this.lblMaxTemp.TabIndex = 9;
             this.lblMaxTemp.Text = "Höchste Temperatur: 0°C";
             // 
@@ -155,7 +155,7 @@
             this.lblMinTemp.AutoSize = true;
             this.lblMinTemp.Location = new System.Drawing.Point(6, 85);
             this.lblMinTemp.Name = "lblMinTemp";
-            this.lblMinTemp.Size = new System.Drawing.Size(134, 13);
+            this.lblMinTemp.Size = new System.Drawing.Size(120, 13);
             this.lblMinTemp.TabIndex = 10;
             this.lblMinTemp.Text = "Niedrigste Temperatur: 0°C";
             // 
@@ -164,7 +164,7 @@
             this.lblMaxHumidity.AutoSize = true;
             this.lblMaxHumidity.Location = new System.Drawing.Point(6, 107);
             this.lblMaxHumidity.Name = "lblMaxHumidity";
-            this.lblMaxHumidity.Size = new System.Drawing.Size(143, 13);
+            this.lblMaxHumidity.Size = new System.Drawing.Size(144, 13);
             this.lblMaxHumidity.TabIndex = 11;
             this.lblMaxHumidity.Text = "Höchste Luftfeuchtigkeit: 0%";
             // 
@@ -173,7 +173,7 @@
             this.lblMinHumidity.AutoSize = true;
             this.lblMinHumidity.Location = new System.Drawing.Point(6, 129);
             this.lblMinHumidity.Name = "lblMinHumidity";
-            this.lblMinHumidity.Size = new System.Drawing.Size(150, 13);
+            this.lblMinHumidity.Size = new System.Drawing.Size(149, 13);
             this.lblMinHumidity.TabIndex = 12;
             this.lblMinHumidity.Text = "Niedrigste Luftfeuchtigkeit: 0%";
             // 
@@ -217,33 +217,6 @@
             this.groupBoxInput.TabStop = false;
             this.groupBoxInput.Text = "Dateneingabe";
             // 
-            // lblDatum
-            // 
-            this.lblDatum.AutoSize = true;
-            this.lblDatum.Location = new System.Drawing.Point(6, 16);
-            this.lblDatum.Name = "lblDatum";
-            this.lblDatum.Size = new System.Drawing.Size(41, 13);
-            this.lblDatum.TabIndex = 17;
-            this.lblDatum.Text = "Datum:";
-            // 
-            // lblTemperatur
-            // 
-            this.lblTemperatur.AutoSize = true;
-            this.lblTemperatur.Location = new System.Drawing.Point(6, 55);
-            this.lblTemperatur.Name = "lblTemperatur";
-            this.lblTemperatur.Size = new System.Drawing.Size(64, 13);
-            this.lblTemperatur.TabIndex = 18;
-            this.lblTemperatur.Text = "Temperatur:";
-            // 
-            // lblLuftfeuchtigkeit
-            // 
-            this.lblLuftfeuchtigkeit.AutoSize = true;
-            this.lblLuftfeuchtigkeit.Location = new System.Drawing.Point(109, 55);
-            this.lblLuftfeuchtigkeit.Name = "lblLuftfeuchtigkeit";
-            this.lblLuftfeuchtigkeit.Size = new System.Drawing.Size(83, 13);
-            this.lblLuftfeuchtigkeit.TabIndex = 19;
-            this.lblLuftfeuchtigkeit.Text = "Luftfeuchtigkeit:";
-            // 
             // groupBoxOutput
             // 
             this.groupBoxOutput.Controls.Add(this.lblAvgTemp);
@@ -258,14 +231,33 @@
             this.groupBoxOutput.TabIndex = 16;
             this.groupBoxOutput.TabStop = false;
             this.groupBoxOutput.Text = "Auswertung";
-            this.groupBoxOutput.Enter += new System.EventHandler(this.groupBoxOutput_Enter);
             // 
-            // lblOutput
+            // lblDatum
             // 
-            this.lblOutput.Location = new System.Drawing.Point(0, 0);
-            this.lblOutput.Name = "lblOutput";
-            this.lblOutput.Size = new System.Drawing.Size(100, 23);
-            this.lblOutput.TabIndex = 0;
+            this.lblDatum.AutoSize = true;
+            this.lblDatum.Location = new System.Drawing.Point(6, 16);
+            this.lblDatum.Name = "lblDatum";
+            this.lblDatum.Size = new System.Drawing.Size(41, 13);
+            this.lblDatum.TabIndex = 17;
+            this.lblDatum.Text = "Datum:";
+            // 
+            // lblTemperatur
+            // 
+            this.lblTemperatur.AutoSize = true;
+            this.lblTemperatur.Location = new System.Drawing.Point(6, 55);
+            this.lblTemperatur.Name = "lblTemperatur";
+            this.lblTemperatur.Size = new System.Drawing.Size(67, 13);
+            this.lblTemperatur.TabIndex = 18;
+            this.lblTemperatur.Text = "Temperatur:";
+            // 
+            // lblLuftfeuchtigkeit
+            // 
+            this.lblLuftfeuchtigkeit.AutoSize = true;
+            this.lblLuftfeuchtigkeit.Location = new System.Drawing.Point(109, 55);
+            this.lblLuftfeuchtigkeit.Name = "lblLuftfeuchtigkeit";
+            this.lblLuftfeuchtigkeit.Size = new System.Drawing.Size(87, 13);
+            this.lblLuftfeuchtigkeit.TabIndex = 19;
+            this.lblLuftfeuchtigkeit.Text = "Luftfeuchtigkeit:";
             // 
             // Form1
             // 

@@ -36,10 +36,10 @@ namespace Wetterdatenauswertung
                 var lines = File.ReadAllLines(filePath);
                 foreach (var line in lines.Skip(1))
                 {
-                    var values = line.Split(';'); 
-                    DateTime datum = DateTime.Parse(values[0], CultureInfo.InvariantCulture);
-                    double temperatur = double.Parse(values[1].Replace(',', '.'), CultureInfo.InvariantCulture); 
-                    double luftfeuchtigkeit = double.Parse(values[2].Replace(',', '.'), CultureInfo.InvariantCulture);
+                    var values = line.Split(';');
+                    DateTime datum = DateTime.Parse(values[0]);
+                    double temperatur = double.Parse(values[1]);
+                    double luftfeuchtigkeit = double.Parse(values[2]);
                     wetterdatenList.Add(new Wetterdaten(datum, temperatur, luftfeuchtigkeit));
                 }
                 MessageBox.Show("Daten erfolgreich geladen.");
@@ -50,7 +50,6 @@ namespace Wetterdatenauswertung
                 MessageBox.Show("Fehler beim Laden der Daten: " + ex.Message);
             }
         }
-
 
         private void UpdateDataGridView()
         {
@@ -123,10 +122,10 @@ namespace Wetterdatenauswertung
             {
                 using (StreamWriter writer = new StreamWriter(filePath))
                 {
-                    writer.WriteLine("Datum,Temperatur,Luftfeuchtigkeit");
+                    writer.WriteLine("Datum;Temperatur;Luftfeuchtigkeit"); 
                     foreach (var data in wetterdatenList)
                     {
-                        writer.WriteLine($"{data.Datum},{data.Temperatur},{data.Luftfeuchtigkeit}");
+                        writer.WriteLine($"{data.Datum:yyyy-MM-dd HH:mm:ss};{data.Temperatur.ToString(CultureInfo.GetCultureInfo("de-DE"))};{data.Luftfeuchtigkeit.ToString(CultureInfo.GetCultureInfo("de-DE"))}");
                     }
                 }
                 MessageBox.Show("Daten erfolgreich gespeichert.");
@@ -163,11 +162,6 @@ namespace Wetterdatenauswertung
             {
                 errorProvider.SetError(tbLuftfeuchtigkeit, null);
             }
-        }
-
-        private void groupBoxOutput_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }
